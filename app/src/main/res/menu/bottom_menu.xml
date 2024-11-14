@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/home"
+        android:title="Inicio"
+        android:icon="@drawable/baseline_home_24"/>
+
+    <item
+        android:id="@+id/Show"
+        android:title="Noticias"
+        android:icon="@drawable/baseline_cell_tower_24"
+        />
+
+    <item
+        android:id="@+id/Subscrip"
+        android:title="Mapa"
+        android:icon="@drawable/baseline_map_24" />
+    <item
+        android:id="@+id/libra"
+        android:title="Denuncias"
+        android:icon="@drawable/baseline_local_police_24" />
+    <item
+        android:title="g"
+
+        />
+</menu>
