@@ -1,19 +1,25 @@
 package com.example.myapplication;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.SearchView;
+import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import androidx.appcompat.widget.SearchView;
+
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -21,16 +27,14 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
-import com.squareup.picasso.Picasso;
 
-public class ShortsFragment extends Fragment {
+public class FragmentShorts extends Fragment {
+
     private RecyclerView newsRecyclerView;
     private NewsAdapter newsAdapter;
     private List<News> newsList;
-    private List<News> filteredNewsList;
+    private static final String TAG = "FragmentShorts";
     private SearchView searchView;
-
-    public ShortsFragment() {}
 
     @Nullable
     @Override
@@ -43,92 +47,78 @@ public class ShortsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // Buscar la vista del SearchView
-        searchView = view.findViewById(R.id.searchView);
-
-        // Configurar RecyclerView
+        // Configuración del RecyclerView
         newsRecyclerView = view.findViewById(R.id.newsRecyclerView);
         newsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
+        // Inicialización de la lista y el adaptador
         newsList = new ArrayList<>();
-        filteredNewsList = new ArrayList<>();
-        newsAdapter = new NewsAdapter(filteredNewsList);
+        newsAdapter = new NewsAdapter(newsList);
         newsRecyclerView.setAdapter(newsAdapter);
 
-        // Cargar noticias desde la API
-        loadNews();
-
-        // Configuración del SearchView
+        // Inicializar SearchView
+        searchView = view.findViewById(R.id.searchView);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                // Este método no debería hacer nada si no es necesario
+                // Llamada a la API para realizar la búsqueda
+                loadNews(query);
                 return false;
             }
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                // Filtrar noticias mientras se escribe
-                filterNews(newText);
-                return true;
+                // Opcional: Podrías realizar la búsqueda a medida que el texto cambia.
+                return false;
             }
         });
+
+        // Llamada inicial para cargar las noticias
+        loadNews(null);
     }
 
-    // Método para cargar noticias desde la API
-    private void loadNews() {
+    private void loadNews(String query) {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://newsapi.org/v2/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         NewsApiService service = retrofit.create(NewsApiService.class);
-        Call<NewsResponse> call = service.getTopHeadlines("us", "9f8e175fa9f8474dbeb798a31e2cad9e");
+        Call<NewsResponse> call;
+
+        // Si hay un término de búsqueda, hacemos la búsqueda con ese término
+        if (query != null && !query.isEmpty()) {
+            call = service.searchNews(query, "9f8e175fa9f8474dbeb798a31e2cad9e");
+        } else {
+            // Si no hay término de búsqueda, se muestran las noticias principales
+            call = service.getTopHeadlines("us", "9f8e175fa9f8474dbeb798a31e2cad9e");
+        }
 
         call.enqueue(new Callback<NewsResponse>() {
             @Override
             public void onResponse(Call<NewsResponse> call, Response<NewsResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {
-                    newsList.addAll(response.body().getArticles());
-                    filteredNewsList.addAll(newsList); // Inicialmente todas las noticias
-                    newsAdapter.notifyDataSetChanged();
+                    List<News> articles = response.body().getArticles();
+                    if (articles != null) {
+                        newsList.clear();  // Limpiar la lista antes de agregar los nuevos artículos
+                        newsList.addAll(articles);
+                        newsAdapter.notifyDataSetChanged();
+                    } else {
+                        Log.e(TAG, "La lista de artículos es nula");
+                    }
+                } else {
+                    Log.e(TAG, "Respuesta no exitosa: " + response.code());
                 }
             }
 
             @Override
             public void onFailure(Call<NewsResponse> call, Throwable t) {
-                // Manejo de error
+                Log.e(TAG, "Error al cargar noticias", t);
             }
         });
     }
 
-    // Filtrar noticias según la búsqueda
-    private void filterNews(String query) {
-        // Proteger contra entradas vacías o nulas
-        if (query == null) {
-            return;
-        }
-
-        filteredNewsList.clear();
-
-        if (query.isEmpty()) {
-            // Si la búsqueda está vacía, mostrar todas las noticias
-            filteredNewsList.addAll(newsList);
-        } else {
-            // Filtrar por título y descripción
-            for (News news : newsList) {
-                if (news.getTitle().toLowerCase().contains(query.toLowerCase()) ||
-                        news.getDescription().toLowerCase().contains(query.toLowerCase())) {
-                    filteredNewsList.add(news);
-                }
-            }
-        }
-
-        newsAdapter.notifyDataSetChanged();
-    }
-
-    // Modelo de datos para las noticias
-    static class News {
+    public static class News {
         private String title;
         private String description;
         private String urlToImage;
@@ -139,25 +129,41 @@ public class ShortsFragment extends Fragment {
             this.urlToImage = urlToImage;
         }
 
-        public String getTitle() { return title; }
-        public String getDescription() { return description; }
-        public String getUrlToImage() { return urlToImage; }
+        public String getTitle() {
+            return title;
+        }
+
+        public String getDescription() {
+            return description;
+        }
+
+        public String getUrlToImage() {
+            return urlToImage;
+        }
     }
 
-    // Respuesta de la API
-    static class NewsResponse {
+    public static class NewsResponse {
         private List<News> articles;
 
-        public List<News> getArticles() { return articles; }
+        public List<News> getArticles() {
+            return articles;
+        }
     }
 
-    // Interfaz de Retrofit
-    interface NewsApiService {
+    public interface NewsApiService {
         @GET("top-headlines")
-        Call<NewsResponse> getTopHeadlines(@Query("country") String country, @Query("apiKey") String apiKey);
+        Call<NewsResponse> getTopHeadlines(
+                @Query("country") String country,
+                @Query("apiKey") String apiKey
+        );
+
+        @GET("everything")
+        Call<NewsResponse> searchNews(
+                @Query("q") String query,
+                @Query("apiKey") String apiKey
+        );
     }
 
-    // Adaptador del RecyclerView
     public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder> {
         private List<News> newsList;
 
@@ -179,8 +185,11 @@ public class ShortsFragment extends Fragment {
             holder.titleTextView.setText(news.getTitle());
             holder.descriptionTextView.setText(news.getDescription());
 
-            // Cargar la imagen usando Picasso
-            Picasso.get().load(news.getUrlToImage()).into(holder.newsImageView);
+            if (news.getUrlToImage() != null && !news.getUrlToImage().isEmpty()) {
+                Picasso.get().load(news.getUrlToImage()).into(holder.newsImageView);
+            } else {
+                holder.newsImageView.setImageResource(R.drawable.placeholder); // Imagen predeterminada
+            }
         }
 
         @Override
@@ -188,8 +197,7 @@ public class ShortsFragment extends Fragment {
             return newsList.size();
         }
 
-        // ViewHolder para el adaptador
-        class NewsViewHolder extends RecyclerView.ViewHolder {
+        public class NewsViewHolder extends RecyclerView.ViewHolder {
             TextView titleTextView, descriptionTextView;
             ImageView newsImageView;
 

@@ -11,6 +11,10 @@ tracingPerfettoHandshake = "1.0.0"
 volley = "1.2.1"
 roomCompilerProcessingTesting = "2.6.1"
 playServicesMaps = "19.0.0"
+retrofit = "2.9.0"
+annotation = "1.6.0"
+
+
 
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -24,7 +28,10 @@ tracing-perfetto-handshake = { group = "androidx.tracing", name = "tracing-perfe
 volley = { group = "com.android.volley", name = "volley", version.ref = "volley" }
 room-compiler-processing-testing = { group = "androidx.room", name = "room-compiler-processing-testing", version.ref = "roomCompilerProcessingTesting" }
 play-services-maps = { group = "com.google.android.gms", name = "play-services-maps", version.ref = "playServicesMaps" }
-
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+retrofit-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
+annotation = { module = "androidx.annotation:annotation", version.ref = "annotation" }
+picasso = "com.squareup.picasso:picasso:2.71828"
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 

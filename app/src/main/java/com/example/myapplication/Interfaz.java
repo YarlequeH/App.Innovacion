@@ -1,21 +1,19 @@
 package com.example.myapplication;
 
-
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
-import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-
-
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -28,10 +26,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
-
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.Flow;
 
 public class Interfaz extends AppCompatActivity {
 
@@ -56,18 +52,17 @@ public class Interfaz extends AppCompatActivity {
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
-        if (savedInstanceState ==null){
-            getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, new HomeFragment()).commit();
+        if (savedInstanceState == null) {
+            // Cargar el fragmento inicial solo si no hay un estado guardado
+            replaceFragment(new HomeFragment());
             navigationView.setCheckedItem(R.id.nav_home);
         }
-        replaceFragment(new HomeFragment());
 
         bottomNavigationView.setBackground(null);
-        bottomNavigationView.setOnItemSelectedListener(item ->  {
-
+        bottomNavigationView.setOnItemSelectedListener(item -> {
             Map<Integer, Fragment> fragmentMap = new HashMap<>();
             fragmentMap.put(R.id.home, new HomeFragment());
-            fragmentMap.put(R.id.Show, new ShortsFragment());
+            fragmentMap.put(R.id.Show, new ShortsFragment()); // Ajustado para cargar el fragmento correcto
             fragmentMap.put(R.id.Subscrip, new SubscriptionsFragment());
             fragmentMap.put(R.id.libra, new LibraryFragment());
 
@@ -79,24 +74,18 @@ public class Interfaz extends AppCompatActivity {
             return true;
         });
 
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showBottomDialog();
-            }
-        });
+        fab.setOnClickListener(view -> showBottomDialog());
     }
-    //
-    private  void replaceFragment(Fragment fragment) {
+
+    private void replaceFragment(Fragment fragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.drawer_layout, fragment);
+        fragmentTransaction.replace(R.id.frame_layout, fragment); // Verificado que R.id.frame_layout es el contenedor correcto
         fragmentTransaction.commit();
+        Log.d("Interfaz", "Fragment reemplazado: " + fragment.getClass().getSimpleName());
     }
 
-
     private void showBottomDialog() {
-
         final Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.bottomsheetlayout);
@@ -106,48 +95,27 @@ public class Interfaz extends AppCompatActivity {
         LinearLayout liveLayout = dialog.findViewById(R.id.layoutLive);
         ImageView cancelButton = dialog.findViewById(R.id.cancelButton);
 
-        videoLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                dialog.dismiss();
-                Toast.makeText(Interfaz.this,"Upload a Video is clicked",Toast.LENGTH_SHORT).show();
-
-            }
+        videoLayout.setOnClickListener(v -> {
+            dialog.dismiss();
+            Toast.makeText(Interfaz.this, "Upload a Video is clicked", Toast.LENGTH_SHORT).show();
         });
 
-        shortsLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                dialog.dismiss();
-                Toast.makeText(Interfaz.this,"Create a short is Clicked",Toast.LENGTH_SHORT).show();
-
-            }
+        shortsLayout.setOnClickListener(v -> {
+            dialog.dismiss();
+            Toast.makeText(Interfaz.this, "Create a short is Clicked", Toast.LENGTH_SHORT).show();
         });
 
-        liveLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                dialog.dismiss();
-                Toast.makeText(Interfaz.this,"Go live is Clicked",Toast.LENGTH_SHORT).show();
-
-            }
+        liveLayout.setOnClickListener(v -> {
+            dialog.dismiss();
+            Toast.makeText(Interfaz.this, "Go live is Clicked", Toast.LENGTH_SHORT).show();
         });
 
-        cancelButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dialog.dismiss();
-            }
-        });
+        cancelButton.setOnClickListener(view -> dialog.dismiss());
 
         dialog.show();
-        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
         dialog.getWindow().setGravity(Gravity.BOTTOM);
-
     }
 }

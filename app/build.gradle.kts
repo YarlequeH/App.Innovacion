@@ -36,9 +36,14 @@ dependencies {
     implementation(libs.activity)
     implementation(libs.constraintlayout)
     implementation(libs.tracing.perfetto.handshake)
-    implementation("com.android.volley:volley:1.2.1")
+    implementation(libs.volley)
     implementation(libs.play.services.maps)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.gson)
+    implementation(libs.annotation)
+    implementation(libs.picasso)
+
 }
