@@ -59,4 +59,5 @@
         android:onClick="SIguiente"
         android:text="Registrarse"
         android:textSize="22sp" />
+
 </LinearLayout>

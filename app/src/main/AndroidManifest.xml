@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-
+    <!-- Permisos necesarios -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -17,23 +18,36 @@
         android:theme="@style/Theme.MyApplication"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-
-        <!-- Actividad principal (login) -->
+        <activity
+            android:name=".MaltratoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AgresionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AcosoAtcivity"
+            android:exported="false" />
+        <activity
+            android:name=".RoboActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ViolenciaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EstructuraActivity"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <!-- Actividad de interfaz (con fragmento) -->
         <activity
             android:name=".Interfaz"
             android:exported="true" />
-
-        <!-- Otras actividades -->
         <activity
             android:name=".menuNave"
             android:exported="false" />
@@ -42,7 +56,10 @@
             android:exported="false" />
         <activity
             android:name=".Registar"
-            android:exported="false" />
-
+            android:exported="false" /> <!-- Activación de la API Key -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAXyYlm2_689ZUyL04YOV2cGkTkj6OlRRw" />
     </application>
+
 </manifest>

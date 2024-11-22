@@ -1,0 +1,71 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:xmls="http://schemas.android.com/apk/res-auto"
+    android:gravity="center"
+    android:layout_marginVertical="30dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="¿CUÁNDO DENUNCIAR?"
+        android:textColor="#000000"
+        android:fontFamily="sans-serif-black"
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_width="367dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="En caso de ser víctimas de cualquier acto, ya sea físico o verbal, de índole sexual que tenga como objetivo o genere el efecto de atentar contra la dignidad de un individuo."
+        android:textColor="@color/black"
+        android:textSize="18sp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="RESPALDADO POR:"
+        android:textColor="#000000"
+        android:fontFamily="sans-serif-black"
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_width="358dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="- Decreto Legislativo 1410.\n\- Ley N° 30314.\n- Ley N° 27942."
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="PARA LA DENUNCIA"
+        android:textColor="#000000"
+        android:fontFamily="sans-serif-black"
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="Puede ocurrir en el trabajo, en el transporte; en calle en cada caso, la Presidencia del Consejo de Ministros nos ofrece diferentes procesos que específica en:"
+        android:textSize="18sp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_margin="5sp"
+        android:backgroundTint="#C75C3C"
+        android:text="Para más Información"
+        android:id="@+id/btn_redireccionar"
+        />
+
+
+
+</LinearLayout>

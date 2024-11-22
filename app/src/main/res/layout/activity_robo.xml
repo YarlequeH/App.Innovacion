@@ -1,0 +1,60 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:xmls="http://schemas.android.com/apk/res-auto"
+    android:gravity="center"
+    android:layout_marginVertical="30dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="LA DENUNCIA POLICIAL DIGITAL "
+        android:textColor="#000000"
+        android:fontFamily="sans-serif-black"
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_width="367dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="Es un servicio que ofrece el Ministerio del Interior, que permite denunciar la pérdida o robo de documentos.\n - Es gratuito.\n\
+- Puede realizarse en cualquier parte del país y a cualquier hora. \n\
+-	Emite un Certificado de Denuncia Policial firmado digitalmente por la Policía Nacional del Perú.
+"
+        android:textColor="@color/black"
+        android:textSize="18sp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="¿CÓMO DENUNCIAR?"
+        android:textColor="#000000"
+        android:fontFamily="sans-serif-black"
+        android:textSize="20sp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="- Al ingresar, lee con detenimientos los términos legales y condiciones de uso, y luego ingresa los datos personales requeridos. El sistema validará la información con la base de datos del Registro Nacional de Identificación y Estado Civil (Reniec).\n\-
+Describe, de manera breve, cómo, dónde y cuándo ocurrió la pérdida o hurto de tus documentos. Es importante que este detalle figure en tu denuncia.
+."
+        android:textColor="@color/black"
+        android:fontFamily="sans-serif-condensed"
+        android:textSize="18sp"/>
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_margin="5sp"
+        android:backgroundTint="#C75C3C"
+        android:text="Para más Información"
+        android:id="@+id/btn_redireccionar"
+        />
+
+
+
+</LinearLayout>

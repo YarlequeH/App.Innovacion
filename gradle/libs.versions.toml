@@ -13,8 +13,7 @@ roomCompilerProcessingTesting = "2.6.1"
 playServicesMaps = "19.0.0"
 retrofit = "2.9.0"
 annotation = "1.6.0"
-
-
+play.services = "21.0.1"
 
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -32,6 +31,7 @@ retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit
 retrofit-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
 annotation = { module = "androidx.annotation:annotation", version.ref = "annotation" }
 picasso = "com.squareup.picasso:picasso:2.71828"
+
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
-
