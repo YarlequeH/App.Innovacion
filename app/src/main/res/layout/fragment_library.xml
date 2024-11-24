@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#15009688"
     android:visibility="visible"
     tools:context=".LibraryFragment"
-    tools:visibility="visible">
+    tools:visibility="visible"
+    android:layout_marginVertical="30dp">
 
     <TextView
         android:layout_width="match_parent"
@@ -39,8 +39,7 @@
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
             android:layout_margin="5sp"
-            android:background="@color/teal_200"
-            android:backgroundTint="#C75C3C"
+            style="@style/ButtonStyle4_Estructura"
             android:text="ESTRUCTURA DE UNA DENUNCIA"
             android:textSize="18sp" />
 
@@ -52,7 +51,7 @@
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
             android:layout_margin="5sp"
-            android:background="#F06D36"
+            style="@style/ButtonStyle5_Violencia_C_M_F"
             android:text="VIOLENCIA CONTRA LA MUJER Y FAMILIA"
             android:textSize="18sp" />
 
@@ -64,7 +63,7 @@
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
             android:layout_margin="5sp"
-            android:background="#F06D36"
+            style="@style/ButtonStyle6_Robo_deD"
             android:text="POR PERDIDA Y ROBO DE DOCUMENTOS"
             android:textSize="18sp" />
 
@@ -76,7 +75,7 @@
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
             android:layout_margin="5sp"
-            android:background="#F06D36"
+            style="@style/ButtonStyle7_Acoso"
             android:text="ACOSO SEXUAL"
             android:textSize="18sp" />
 
@@ -88,7 +87,7 @@
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
             android:layout_margin="5sp"
-            android:background="#F06D36"
+            style="@style/ButtonStyle8_Denuncia_por_Agresion"
             android:text="DENUNCIA POR AGRESIÓN"
             android:textSize="18sp" />
 
@@ -100,7 +99,7 @@
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
             android:layout_margin="5sp"
-            android:background="#F06D36"
+            style="@style/ButtonStyle9_Maltrato_animal"
             android:text="MALTRATO ANIMAL"
             android:textSize="18sp" />
     </GridLayout>

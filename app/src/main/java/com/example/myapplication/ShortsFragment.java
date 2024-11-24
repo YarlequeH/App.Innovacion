@@ -83,7 +83,9 @@ public class ShortsFragment extends Fragment {
                 .build();
 
         NewsApiService service = retrofit.create(NewsApiService.class);
-        Call<NewsResponse> call = service.getTopHeadlines("us", "9f8e175fa9f8474dbeb798a31e2cad9e");
+
+        // Incluye el idioma 'es' para obtener noticias en español
+        Call<NewsResponse> call = service.getTopHeadlines("us", "9f8e175fa9f8474dbeb798a31e2cad9e", "es");
 
         call.enqueue(new Callback<NewsResponse>() {
             @Override
@@ -104,7 +106,6 @@ public class ShortsFragment extends Fragment {
 
     // Filtrar noticias según la búsqueda
     private void filterNews(String query) {
-        // Proteger contra entradas vacías o nulas
         if (query == null) {
             return;
         }
@@ -112,10 +113,8 @@ public class ShortsFragment extends Fragment {
         filteredNewsList.clear();
 
         if (query.isEmpty()) {
-            // Si la búsqueda está vacía, mostrar todas las noticias
             filteredNewsList.addAll(newsList);
         } else {
-            // Filtrar por título y descripción
             for (News news : newsList) {
                 if (news.getTitle().toLowerCase().contains(query.toLowerCase()) ||
                         news.getDescription().toLowerCase().contains(query.toLowerCase())) {
@@ -133,12 +132,6 @@ public class ShortsFragment extends Fragment {
         private String description;
         private String urlToImage;
 
-        public News(String title, String description, String urlToImage) {
-            this.title = title;
-            this.description = description;
-            this.urlToImage = urlToImage;
-        }
-
         public String getTitle() { return title; }
         public String getDescription() { return description; }
         public String getUrlToImage() { return urlToImage; }
@@ -154,7 +147,11 @@ public class ShortsFragment extends Fragment {
     // Interfaz de Retrofit
     interface NewsApiService {
         @GET("top-headlines")
-        Call<NewsResponse> getTopHeadlines(@Query("country") String country, @Query("apiKey") String apiKey);
+        Call<NewsResponse> getTopHeadlines(
+                @Query("country") String country,
+                @Query("apiKey") String apiKey,
+                @Query("language") String language // Nuevo parámetro
+        );
     }
 
     // Adaptador del RecyclerView
@@ -202,3 +199,4 @@ public class ShortsFragment extends Fragment {
         }
     }
 }
+

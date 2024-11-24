@@ -9,10 +9,8 @@
     <color name="teal_700">#FF018786</color>
     <color name="lavender">#8692f7</color>
     <color name="red">#EF0857</color>
-    <color name="green">#00B315</color>
-    <color name="yellow">#D5C115</color>
-    <color name="blue">#2196F3</color> <!-- Color del botón -->
-    <color name="dark_blue">#1565C0</color> <!-- Color al presionar -->
-
-
+    <color name="blue">#0520fc</color>
+    <color name="green">#19fb0e</color>
+    <color name="yellow">#e9fb0e</color>
+    <color name="naranja">#FF9800</color>
 </resources>

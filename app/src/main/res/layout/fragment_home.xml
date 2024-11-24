@@ -2,40 +2,39 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="25dp">
 
     <Button
-        android:layout_marginVertical="30dp"
+        android:layout_marginVertical="20dp"
+        style="@style/ButtonStyle1_Ambulancia"
         android:id="@+id/btnAmbulance"
-        android:layout_width="129dp"
-        android:layout_height="129dp"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
         android:text="Ambulancia"
-        android:background="@drawable/ambulancia_btn_css"
         android:textStyle="bold"
         android:layout_gravity="center"
-        android:textSize="15sp"
+        android:textSize="20sp" />
 
-        />
 
     <Button
-        android:layout_marginVertical="30dp"
+        android:layout_marginVertical="20dp"
         android:id="@+id/btnFire"
-        android:layout_width="129dp"
-        android:layout_height="129dp"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
         android:text="Bomberos"
-        android:background="@drawable/bomberos_btn_css"
+        style="@style/ButtonStyle2_Bomberos"
         android:textStyle="bold"
         android:layout_gravity="center"
-        android:textSize="15sp"/>
+        android:textSize="20sp"/>
 
     <Button
-        android:layout_marginVertical="30dp"
+        android:layout_marginVertical="20dp"
         android:id="@+id/btnPolice"
-        android:layout_width="129dp"
-        android:layout_height="129dp"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
         android:text="Policía"
-        android:background="@drawable/policia_btn_css"
+        style="@style/ButtonStyle3_Policia"
         android:textStyle="bold"
         android:layout_gravity="center"
-        android:textSize="15sp"/>
+        android:textSize="20sp"/>
 </LinearLayout>
