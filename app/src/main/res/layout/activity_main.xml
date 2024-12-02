@@ -33,6 +33,7 @@
                 android:textColor="@color/plomo"
                 android:textSize="28sp"
                 android:textStyle="bold"
+                android:fontFamily="@font/"
                 />
 
             <EditText
