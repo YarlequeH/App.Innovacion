@@ -1,106 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/ab"
+    android:gravity="center"
     android:orientation="vertical"
     tools:context=".Usuario">
-    <TextView
-        android:layout_width="wrap_content"
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="25sp"
-        android:hint="Bienvenido"
         android:layout_margin="30dp"
-        android:layout_gravity="center"
-        />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="25sp"
-        android:hint="Nombre"
-        android:layout_gravity="center"
-        />
-    <TextView
-        android:id="@+id/Text_Nombre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="25sp"
-        android:hint=""
-        android:layout_gravity="center"
-        />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="25sp"
-        android:hint="Usuario"
-        android:layout_gravity="center"
-        />
-    <TextView
-        android:id="@+id/Text_Usuario"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="25sp"
-        android:hint=""
-        android:layout_gravity="center"
-        />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="25sp"
-        android:hint="Contraseña"
-        android:layout_gravity="center"
-        />
-    <TextView
-        android:id="@+id/Text_Password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="25sp"
-        android:hint=""
-        android:layout_gravity="center"
-        />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="25sp"
-        android:hint="Edad"
-        android:layout_gravity="center"
-        />
-    <TextView
-        android:id="@+id/Text_Edad"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="25sp"
-        android:hint=""
-        android:layout_gravity="center"
-        />
-    <Button
-        android:id="@+id/Btn_Inicio"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Ingresar"
-        android:textSize="25sp" />
+        android:background="@drawable/estilo_texto"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center_horizontal"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Bienvenido"
+                android:textAlignment="center"
+                android:textColor="@color/green"
+                android:textSize="34sp"
+                android:textStyle="bold"
+                android:layout_margin="10sp"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:hint="Nombre"
+                android:layout_gravity="center"
+                android:layout_margin="10sp"
+                />
+            <TextView
+                android:id="@+id/Text_Nombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:hint=""
+                android:layout_gravity="center"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:hint="Usuario"
+                android:layout_gravity="center"
+                android:layout_margin="10sp"
+
+                />
+            <TextView
+                android:id="@+id/Text_Usuario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:hint=""
+                android:layout_gravity="center"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:hint="Contraseña"
+                android:layout_gravity="center"
+                android:layout_margin="10sp"
+                />
+            <TextView
+                android:id="@+id/Text_Password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:hint=""
+                android:layout_gravity="center"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:hint="Edad"
+                android:layout_gravity="center"
+                android:layout_margin="0sp"
+                />
+            <TextView
+                android:id="@+id/Text_Edad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:hint=""
+                android:layout_gravity="center"
+                />
+            <Button
+                android:id="@+id/Btn_Inicio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:text="Ingresar"
+                android:textSize="26dp"
+                app:cornerRadius="20dp"
+                />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+
 </LinearLayout>
 
 

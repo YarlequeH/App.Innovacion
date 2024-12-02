@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import androidx.fragment.app.Fragment;
-
+import androidx.appcompat.app.AppCompatActivity;
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link HomeFragment#newInstance} factory method to
@@ -65,11 +66,25 @@ public class HomeFragment extends Fragment {
         Button btnAmbulance = rootView.findViewById(R.id.btnAmbulance);
         Button btnFire = rootView.findViewById(R.id.btnFire);
         Button btnPolice = rootView.findViewById(R.id.btnPolice);
+        Button btnExit = rootView.findViewById(R.id.btnExit);
 
         // Configura los listeners de los botones
         btnAmbulance.setOnClickListener(v -> dialEmergencyNumber("116"));
         btnFire.setOnClickListener(v -> dialEmergencyNumber("116"));
         btnPolice.setOnClickListener(v -> dialEmergencyNumber("105"));
+        btnExit.setOnClickListener(v -> {
+
+            // Borra la preferencia de "Recordar sesión"
+            if (getActivity() != null) {
+                SharedPreferences sharedPreferences = getActivity().getSharedPreferences("LoginPrefs", getActivity().MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putBoolean("isLoggedIn", false); // Desactivar recordar sesión
+                editor.apply();
+
+                // Cierra la aplicación
+                getActivity().finishAffinity(); // Finaliza todas las actividades
+            }
+        });
 
         return rootView;
     }

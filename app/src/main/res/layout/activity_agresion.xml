@@ -1,71 +1,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    xmlns:xmls="http://schemas.android.com/apk/res-auto"
-    android:gravity="center"
-    android:layout_marginVertical="30dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/celeste"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="¿CUÁNDO DENUNCIAR?"
-        android:textColor="#000000"
-        android:fontFamily="sans-serif-black"
-        android:textSize="20sp" />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:src="@drawable/info"
 
-    <TextView
-        android:layout_width="367dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:fontFamily="sans-serif-condensed"
-        android:text="En caso de ser víctimas de conductas ilícitas que afectan los sistemas y datos informáticos y otros bienes jurídicos de relevancia penal, cometidas mediante la utilización de tecnologías de la información o de la comunicación."
-        android:textColor="@color/black"
-        android:textSize="18sp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="RESPALDADO POR:"
-        android:textColor="#000000"
-        android:fontFamily="sans-serif-black"
-        android:textSize="20sp" />
-
-    <TextView
-        android:layout_width="358dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:fontFamily="sans-serif-condensed"
-        android:text="- Ley N° 30096, Ley de Delitos Informáticos."
-        android:textColor="@color/black"
-        android:textSize="18sp" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="PARA LA DENUNCIA"
-        android:textColor="#000000"
-        android:fontFamily="sans-serif-black"
-        android:textSize="20sp" />
-
-    <TextView
-        android:layout_width="360dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:fontFamily="sans-serif-condensed"
-        android:text="Para denunciar un delito informático, puedes acudir a cualquier comisaría en el país o contactar directamente con la División de Investigación de Delitos de Alta Tecnología. Utiliza el número telefónico (01) 431-8898 o llama gratis al 1818, también puedes enviar un correo electrónico a divindat.depcpi@policia.gob.pe  o acudir directamente a la Dirección de Investigación Criminal (Dirincri)."
-        android:textSize="18sp" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:layout_margin="5sp"
-        android:backgroundTint="#C75C3C"
-        android:text="Para más Información"
-        android:id="@+id/btn_redireccionar"
         />
-
-
 
 </LinearLayout>

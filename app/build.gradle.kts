@@ -45,6 +45,7 @@ dependencies {
     implementation(libs.retrofit.gson)
     implementation(libs.annotation)
     implementation(libs.picasso)
+    implementation(libs.play.services.location)
 
 
 

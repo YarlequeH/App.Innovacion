@@ -1,73 +1,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    xmlns:xmls="http://schemas.android.com/apk/res-auto"
-    android:gravity="center"
-    android:layout_marginVertical="30dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/celeste"
     android:orientation="vertical">
 
-    <TextView
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="¿DÓNDE DENUNCIAR?"
-        android:textColor="#000000"
-        android:fontFamily="sans-serif-black"
-        android:textSize="20sp" />
-
-    <TextView
-        android:layout_width="367dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:fontFamily="sans-serif-condensed"
-        android:text="Para formalizar tu denuncia deberás presentarla ante la comisaría y municipalidad del distrito en el que sucedió el maltrato.
-También, puedes llamar a la línea gratuita 0800-00-205 del Ministerio Público.
-"
-        android:textColor="@color/black"
-        android:textSize="18sp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="RESPALDADO POR:"
-        android:textColor="#000000"
-        android:fontFamily="sans-serif-black"
-        android:textSize="20sp" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:text="- Artículo 206-A del Código Penal.\n\- Ley 30407 de Protección y Bienestar Animal."
-        android:textColor="@color/black"
-        android:fontFamily="sans-serif-condensed"
-        android:textSize="18sp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="PARA LA DENUNCIA"
-        android:textColor="#000000"
-        android:fontFamily="sans-serif-black"
-        android:textSize="20sp" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:text="Tomar en cuenta: \n- Documenta el suceso de manera discreta. \n\- Registra la dirección precisa. \n\- Preferentemente, centrar atención en el rostro del agresor, mediante imágenes o grabaciones.\n\- Evita intervenir y responder, especialmente si te encuentras solo.\n\- Antes de entregar tu denuncia con todas las evidencias recolectadas, haz una réplica de la misma y consérvala en tu poder.
-"
-        android:textColor="@color/black"
-        android:fontFamily="sans-serif-condensed"
-        android:textSize="18sp"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:layout_margin="5sp"
-        android:backgroundTint="#C75C3C"
-        android:text="Para más Información"
-        android:id="@+id/btn_redireccionar"
-        />
-
-
+        android:layout_gravity="center"
+        android:src="@drawable/mal" />
 
 </LinearLayout>

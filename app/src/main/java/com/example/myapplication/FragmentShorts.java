@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.SearchView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -34,7 +33,6 @@ public class FragmentShorts extends Fragment {
     private NewsAdapter newsAdapter;
     private List<News> newsList;
     private static final String TAG = "FragmentShorts";
-    private SearchView searchView;
 
     @Nullable
     @Override
@@ -56,43 +54,18 @@ public class FragmentShorts extends Fragment {
         newsAdapter = new NewsAdapter(newsList);
         newsRecyclerView.setAdapter(newsAdapter);
 
-        // Inicializar SearchView
-        searchView = view.findViewById(R.id.searchView);
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                // Llamada a la API para realizar la búsqueda
-                loadNews(query);
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                // Opcional: Podrías realizar la búsqueda a medida que el texto cambia.
-                return false;
-            }
-        });
-
         // Llamada inicial para cargar las noticias
-        loadNews(null);
+        loadNews();
     }
 
-    private void loadNews(String query) {
+    private void loadNews() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://newsapi.org/v2/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         NewsApiService service = retrofit.create(NewsApiService.class);
-        Call<NewsResponse> call;
-
-        // Si hay un término de búsqueda, hacemos la búsqueda con ese término
-        if (query != null && !query.isEmpty()) {
-            call = service.searchNews(query, "9f8e175fa9f8474dbeb798a31e2cad9e");
-        } else {
-            // Si no hay término de búsqueda, se muestran las noticias principales
-            call = service.getTopHeadlines("us", "9f8e175fa9f8474dbeb798a31e2cad9e");
-        }
+        Call<NewsResponse> call = service.getTopHeadlines("us", "9f8e175fa9f8474dbeb798a31e2cad9e");
 
         call.enqueue(new Callback<NewsResponse>() {
             @Override
@@ -156,12 +129,6 @@ public class FragmentShorts extends Fragment {
                 @Query("country") String country,
                 @Query("apiKey") String apiKey
         );
-
-        @GET("everything")
-        Call<NewsResponse> searchNews(
-                @Query("q") String query,
-                @Query("apiKey") String apiKey
-        );
     }
 
     public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder> {
@@ -210,3 +177,4 @@ public class FragmentShorts extends Fragment {
         }
     }
 }
+

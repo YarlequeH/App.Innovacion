@@ -6,22 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".FragmentShorts">
 
-    <!-- Barra de búsqueda -->
-    <androidx.appcompat.widget.SearchView
-        android:layout_marginVertical="20dp"
-        android:id="@+id/searchView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:queryHint="Buscar noticias"
-        android:background="@drawable/contendor"
-        />
+
 
     <!-- RecyclerView para mostrar las noticias -->
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginVertical="80dp"
+        android:layout_marginVertical="1dp"
         android:id="@+id/newsRecyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"

@@ -1,40 +1,100 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="25dp">
+    tools:context=".HomeFragment">
 
+    <!-- Botón Salir (Ahora arriba) -->
     <Button
-        android:layout_marginVertical="20dp"
-        style="@style/ButtonStyle1_Ambulancia"
-        android:id="@+id/btnAmbulance"
-        android:layout_width="160dp"
-        android:layout_height="160dp"
-        android:text="Ambulancia"
+        android:id="@+id/btnExit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/purple_700"
+        android:padding="10dp"
+        android:text="Salir"
+        android:textColor="@android:color/black"
         android:textStyle="bold"
-        android:layout_gravity="center"
-        android:textSize="20sp" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="35dp"/>
 
+    <!-- CardView que envuelve el botón Ambulancia -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewAmbulance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnExit">
 
+        <Button
+            android:id="@+id/btnAmbulance"
+            android:layout_width="312dp"
+            android:layout_height="87dp"
+            android:backgroundTint="#f7dc6f"
+            android:gravity="center"
+            android:text="AMBULANCIA"
+            android:textSize="23sp" />
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/ambulancia"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp" />
+    </androidx.cardview.widget.CardView>
+
+    <!-- Botón Bombero -->
     <Button
-        android:layout_marginVertical="20dp"
         android:id="@+id/btnFire"
-        android:layout_width="160dp"
-        android:layout_height="160dp"
-        android:text="Bomberos"
-        style="@style/ButtonStyle2_Bomberos"
-        android:textStyle="bold"
-        android:layout_gravity="center"
-        android:textSize="20sp"/>
+        android:layout_width="312dp"
+        android:layout_height="87dp"
+        android:backgroundTint="#EE0043"
+        android:gravity="center"
+        android:text="BOMBERO"
+        android:textSize="23sp"
+        app:layout_constraintTop_toBottomOf="@id/cardViewAmbulance"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="50dp" />
+
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/bomb"
+        app:layout_constraintTop_toBottomOf="@id/cardViewAmbulance"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="65dp" />
+
+    <!-- Botón Policía -->
 
     <Button
-        android:layout_marginVertical="20dp"
         android:id="@+id/btnPolice"
-        android:layout_width="160dp"
-        android:layout_height="160dp"
-        android:text="Policía"
-        style="@style/ButtonStyle3_Policia"
-        android:textStyle="bold"
-        android:layout_gravity="center"
-        android:textSize="20sp"/>
-</LinearLayout>
+        android:layout_width="312dp"
+        android:layout_height="87dp"
+        android:layout_marginTop="52dp"
+        android:backgroundTint="#8692f7"
+        android:gravity="center"
+        android:text="POLICÍA"
+        android:textSize="23sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnFire" />
+
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/policia01"
+        app:layout_constraintTop_toBottomOf="@id/btnFire"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="65dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

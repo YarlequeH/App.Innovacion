@@ -1,55 +1,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    xmlns:xmls="http://schemas.android.com/apk/res-auto"
-    android:gravity="center"
-    android:layout_marginVertical="30dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/celeste"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="ELEMENTOS QUE SE NECESITAN PARA HACER UNA DENUNCIA"
-        android:textColor="#000000"
-        android:fontFamily="sans-serif-black"
-        android:textSize="20sp" />
-
-    <TextView
-        android:layout_width="367dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:fontFamily="sans-serif-condensed"
-        android:text="-Identificación, firma y huella del denunciante.\n\-Narración detalle y veraz del hecho.\n\-Detalles de presunto responsable."
-        android:textColor="@color/black"
-        android:textSize="18sp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="¿DÓNDE PUEDES IR A DENUNCIAR?"
-        android:textColor="#000000"
-        android:fontFamily="sans-serif-black"
-        android:textSize="20sp" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:text="-Policía Nacional del Perú.\n\-Fiscalía de la nación.\n\-Plataforma digital CENTRAL UNICA DE DENUNCIAS del Ministerio del Interior."
-        android:textColor="@color/black"
-        android:fontFamily="sans-serif-condensed"
-        android:textSize="18sp"/>
-
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:layout_margin="5sp"
-        android:backgroundTint="#C75C3C"
-        android:text="Para más Información"
-        android:id="@+id/btn_redireccionar"
-        />
-
-
+    <ImageView
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/estruc" />
 
 </LinearLayout>
